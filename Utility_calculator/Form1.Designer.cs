@@ -181,6 +181,7 @@ namespace Utility_calculator
             this.calculateGasBut.TabIndex = 11;
             this.calculateGasBut.Text = "calculate Gas";
             this.calculateGasBut.UseVisualStyleBackColor = true;
+            this.calculateGasBut.Click += new System.EventHandler(this.calculateGasBut_Click);
             // 
             // Form1
             // 
@@ -193,7 +194,7 @@ namespace Utility_calculator
             this.Controls.Add(this.electricityBut);
             this.Controls.Add(this.title);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Utility_Bills_Calcualtor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
