@@ -36,13 +36,13 @@ namespace Utility_calculator
             this.gasUnitRate = new System.Windows.Forms.Label();
             this.unitRateBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.standingChargeBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.firstMeterReadingBox = new System.Windows.Forms.TextBox();
+            this.calculateGasBut = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.secondMeterReadingBox = new System.Windows.Forms.TextBox();
-            this.calculateGasBut = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.firstMeterReadingBox = new System.Windows.Forms.TextBox();
+            this.standingChargeBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,38 +124,15 @@ namespace Utility_calculator
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Gas Utility";
             // 
-            // label1
+            // calculateGasBut
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 184);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Standing charge";
-            // 
-            // standingChargeBox
-            // 
-            this.standingChargeBox.Location = new System.Drawing.Point(135, 176);
-            this.standingChargeBox.Name = "standingChargeBox";
-            this.standingChargeBox.Size = new System.Drawing.Size(97, 20);
-            this.standingChargeBox.TabIndex = 7;
-            this.standingChargeBox.Text = "28.47";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "First Meter Reading";
-            // 
-            // firstMeterReadingBox
-            // 
-            this.firstMeterReadingBox.Location = new System.Drawing.Point(117, 38);
-            this.firstMeterReadingBox.Name = "firstMeterReadingBox";
-            this.firstMeterReadingBox.Size = new System.Drawing.Size(115, 20);
-            this.firstMeterReadingBox.TabIndex = 8;
+            this.calculateGasBut.Location = new System.Drawing.Point(52, 293);
+            this.calculateGasBut.Name = "calculateGasBut";
+            this.calculateGasBut.Size = new System.Drawing.Size(127, 23);
+            this.calculateGasBut.TabIndex = 11;
+            this.calculateGasBut.Text = "calculate Gas";
+            this.calculateGasBut.UseVisualStyleBackColor = true;
+            this.calculateGasBut.Click += new System.EventHandler(this.calculateGasBut_Click);
             // 
             // label3
             // 
@@ -172,16 +149,41 @@ namespace Utility_calculator
             this.secondMeterReadingBox.Name = "secondMeterReadingBox";
             this.secondMeterReadingBox.Size = new System.Drawing.Size(97, 20);
             this.secondMeterReadingBox.TabIndex = 10;
+            this.secondMeterReadingBox.Text = "0845";
             // 
-            // calculateGasBut
+            // label2
             // 
-            this.calculateGasBut.Location = new System.Drawing.Point(52, 293);
-            this.calculateGasBut.Name = "calculateGasBut";
-            this.calculateGasBut.Size = new System.Drawing.Size(127, 23);
-            this.calculateGasBut.TabIndex = 11;
-            this.calculateGasBut.Text = "calculate Gas";
-            this.calculateGasBut.UseVisualStyleBackColor = true;
-            this.calculateGasBut.Click += new System.EventHandler(this.calculateGasBut_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "First Meter Reading";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 184);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Standing charge";
+            // 
+            // firstMeterReadingBox
+            // 
+            this.firstMeterReadingBox.Location = new System.Drawing.Point(117, 38);
+            this.firstMeterReadingBox.Name = "firstMeterReadingBox";
+            this.firstMeterReadingBox.Size = new System.Drawing.Size(115, 20);
+            this.firstMeterReadingBox.TabIndex = 8;
+            this.firstMeterReadingBox.Text = "0803";
+            // 
+            // standingChargeBox
+            // 
+            this.standingChargeBox.Location = new System.Drawing.Point(135, 176);
+            this.standingChargeBox.Name = "standingChargeBox";
+            this.standingChargeBox.Size = new System.Drawing.Size(97, 20);
+            this.standingChargeBox.TabIndex = 7;
+            this.standingChargeBox.Text = "28.47";
             // 
             // Form1
             // 
