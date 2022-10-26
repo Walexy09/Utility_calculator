@@ -26,19 +26,21 @@ namespace Utility_calculator
         {
 
             string unitRate, standingCharge, initialMeterReading, finalMeterReading;
-            double valueDiff;
+            double valueDiff, consumptionKWH;
+            decimal gasPrice;
             const double IMPERIALTOMETRIC = 2.83;
             const double CORRECTION_FACTOR = 1.02264;
-            const int CALORIFIC_VALUE = 40;
+            const int CALORIFIC_VALUE = 39;
+
+            int DAYS_PER_MONTH = int.Parse(noOfDaysBox.Text);
+
+            const double CONVERSION_KWH = 3.6;
 
             initialMeterReading = firstMeterReadingBox.Text;
 
             finalMeterReading = secondMeterReadingBox.Text;
 
             string caption = "wrong input detected!";
-
-
-            //valueDiff = (finalMeterReading - initialMeterReading);
 
             unitRate = unitRateBox.Text;
 
@@ -49,17 +51,17 @@ namespace Utility_calculator
                 string stringValue = initialMeterReading == "" ? "First meter reading is empty, please supply numeric value" : "Second meter reading is empty, please supply numeric value";
 
                 MessageBox.Show(stringValue, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-       
+
                 return;
 
             }
-            else if ((!Char.IsDigit(initialMeterReading, 0)) || (!Char.IsDigit(finalMeterReading, 0)))   
+            else if ((!Char.IsDigit(initialMeterReading, 0)) || (!Char.IsDigit(finalMeterReading, 0)))
             {
-                
+
                 string stringValue = ((!Char.IsDigit(initialMeterReading, 0)) == true) ? $"{initialMeterReading} is not valid entry, please supply numeric value" : $" {finalMeterReading} is not a valid entry, Please supply numeric value";
-                
+
                 MessageBox.Show(stringValue, caption, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+
                 return;
             }
 
@@ -81,22 +83,57 @@ namespace Utility_calculator
                 return;
             }
 
-            else
+            /*else
             {
                 MessageBox.Show("Thank you, you supplied a digit");
+            }*/
+
+
+            if (int.Parse(finalMeterReading) < int.Parse(initialMeterReading)) {
+
+                string message = $"Current Meter Reading: {finalMeterReading} cannot be lower than the initial Meter Reading:  {initialMeterReading}, \n please " +
+                    $"check the values supplied to be sure they are correct and try again!!";
+
+                string captionTitle = "invalid user inputs detected";
+
+                MessageBox.Show(message, captionTitle, MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                return;
             }
 
+            valueDiff = double.Parse(finalMeterReading) - double.Parse(initialMeterReading);
+
+            double result1 = valueDiff * IMPERIALTOMETRIC;
+
+            double result2 = result1 * CORRECTION_FACTOR;
+
+            double caloricValueInt = (double)CALORIFIC_VALUE;
+
+            double result3 = result2 * caloricValueInt;
+
+            consumptionKWH = Math.Round((result3 / CONVERSION_KWH), 3);
+
+            consumptionBox.Text = consumptionKWH.ToString();
+
+            decimal standChargeDecimal = decimal.Parse(standingCharge);
+
+            double unitRateDouble = double.Parse(unitRate);
+
+            decimal chargePerMonth = Math.Round(((standChargeDecimal * (decimal)DAYS_PER_MONTH))/100, 2);
+
+            standingChargePerMonthLabel.Text = "£" + chargePerMonth.ToString();
+
+            decimal totalGasPrice = Math.Round(( (decimal)consumptionKWH * (decimal)unitRateDouble )/100 + chargePerMonth, 2);
+
+            resultBox.Text = totalGasPrice.ToString();
 
 
+            string finalResult = $"Your Bill is as follows: " +
+                $"\n\n 1. Standing Charge per {DAYS_PER_MONTH} days:  £{chargePerMonth}." +
+                $"\n\n 2. Gas Consumption Kwh for {DAYS_PER_MONTH} days:  {Math.Round(consumptionKWH, 2)} Kwh. " +
+                $"\n\n 3. Total Gas Price Consumed for {DAYS_PER_MONTH} days period: £{totalGasPrice}.";
 
-
-
-
-
-
-
-
-
+            MessageBox.Show(finalResult, "Your Gas Bill Usage", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
         }
@@ -104,6 +141,24 @@ namespace Utility_calculator
         private bool IsDigit(string text)
         {
             throw new NotImplementedException();
+        }
+
+        private void reserBut_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        private void detailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string version = "1.0.0";
+            string author = "Joshua Ajayi Adewale";
+            string email = "walexy85@gmail.com";
+            string title = $"\n\n Utily Bills Calculator.\n\n Written by : {author}. \n\n Version: {version}. \n\n You can contact me on " +
+                $"email address: {email}";
+
+            MessageBox.Show(title, "About App", MessageBoxButtons.OK);
         }
     }
 }
