@@ -50,7 +50,7 @@ namespace Utility_calculator
             // 
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title.Location = new System.Drawing.Point(397, 24);
+            this.title.Location = new System.Drawing.Point(397, 9);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(123, 19);
             this.title.TabIndex = 0;
@@ -59,19 +59,18 @@ namespace Utility_calculator
             // electricityBut
             // 
             this.electricityBut.AutoSize = true;
-            this.electricityBut.Location = new System.Drawing.Point(401, 80);
+            this.electricityBut.Location = new System.Drawing.Point(401, 48);
             this.electricityBut.Name = "electricityBut";
             this.electricityBut.Size = new System.Drawing.Size(70, 17);
             this.electricityBut.TabIndex = 1;
             this.electricityBut.TabStop = true;
             this.electricityBut.Text = "Electricity";
             this.electricityBut.UseVisualStyleBackColor = true;
-            this.electricityBut.CheckedChanged += new System.EventHandler(this.electricityBut_CheckedChanged);
             // 
             // gasBut
             // 
             this.gasBut.AutoSize = true;
-            this.gasBut.Location = new System.Drawing.Point(120, 57);
+            this.gasBut.Location = new System.Drawing.Point(94, 48);
             this.gasBut.Name = "gasBut";
             this.gasBut.Size = new System.Drawing.Size(44, 17);
             this.gasBut.TabIndex = 2;
@@ -82,7 +81,7 @@ namespace Utility_calculator
             // waterBut
             // 
             this.waterBut.AutoSize = true;
-            this.waterBut.Location = new System.Drawing.Point(768, 80);
+            this.waterBut.Location = new System.Drawing.Point(768, 48);
             this.waterBut.Name = "waterBut";
             this.waterBut.Size = new System.Drawing.Size(54, 17);
             this.waterBut.TabIndex = 3;
@@ -118,7 +117,7 @@ namespace Utility_calculator
             this.groupBox1.Controls.Add(this.standingChargeBox);
             this.groupBox1.Controls.Add(this.gasUnitRate);
             this.groupBox1.Controls.Add(this.unitRateBox);
-            this.groupBox1.Location = new System.Drawing.Point(35, 80);
+            this.groupBox1.Location = new System.Drawing.Point(27, 116);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(260, 322);
             this.groupBox1.TabIndex = 6;
@@ -176,7 +175,7 @@ namespace Utility_calculator
             // 
             // calculateGasBut
             // 
-            this.calculateGasBut.Location = new System.Drawing.Point(85, 271);
+            this.calculateGasBut.Location = new System.Drawing.Point(52, 293);
             this.calculateGasBut.Name = "calculateGasBut";
             this.calculateGasBut.Size = new System.Drawing.Size(127, 23);
             this.calculateGasBut.TabIndex = 11;

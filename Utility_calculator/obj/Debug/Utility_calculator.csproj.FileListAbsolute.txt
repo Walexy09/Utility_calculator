@@ -1,0 +1,10 @@
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\bin\Debug\Utility_calculator.exe.config
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\bin\Debug\Utility_calculator.exe
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\bin\Debug\Utility_calculator.pdb
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\obj\Debug\Utility_calculator.csproj.AssemblyReference.cache
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\obj\Debug\Utility_calculator.Form1.resources
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\obj\Debug\Utility_calculator.Properties.Resources.resources
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\obj\Debug\Utility_calculator.csproj.GenerateResource.cache
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\obj\Debug\Utility_calculator.csproj.CoreCompileInputs.cache
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\obj\Debug\Utility_calculator.exe
+C:\Users\walex\CSharp_Programs\Utility_calculator\Utility_calculator\obj\Debug\Utility_calculator.pdb
