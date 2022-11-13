@@ -15,6 +15,7 @@ namespace Utility_calculator
         public Form1()
         {
             InitializeComponent();
+           
         }
 
         private void calculateGasBut_Click(object sender, EventArgs e)
@@ -121,6 +122,8 @@ namespace Utility_calculator
 
                 double unitRateDouble = double.Parse(unitRate);
 
+                gasStandingCharge_DaysNo.Text = $"Cal.Standing charge for {DAYS_PER_MONTH} days: £";
+
                 decimal chargePerMonth = Math.Round(((standChargeDecimal * (decimal)DAYS_PER_MONTH)) / 100, 2);
 
                 standingChargePerMonthLabel.Text = "£" + chargePerMonth.ToString();
@@ -135,7 +138,7 @@ namespace Utility_calculator
                     $"\n\n 2. Gas Consumption Kwh for {DAYS_PER_MONTH} days:  {Math.Round(consumptionKWH, 2)} Kwh. " +
                     $"\n\n 3. Total Gas Price Consumed for {DAYS_PER_MONTH} days period: £{totalGasPrice}.";
 
-                MessageBox.Show(finalResult, "Your Gas Bill Usage", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(finalResult, $"Your Gas Bill Usage for {DAYS_PER_MONTH} days period ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
@@ -243,9 +246,6 @@ namespace Utility_calculator
             }
         }
 
-
-
-
         private void calculateElectricBut_Click(object sender, EventArgs e)
         {
 
@@ -261,30 +261,185 @@ namespace Utility_calculator
 
             daysConsumed = electricDayNoBox.Text;
 
+            const int penceToPound = 100;
+
+            const int noOfDecimalPlaces = 2;
+
             validateMeterReadings(lastMeterReading, currentMeterReading, unitRate, standingCharge);
 
-            if ( Convert.ToInt32(lastMeterReading) >=  (Convert.ToInt32(currentMeterReading)) ) {
+           // MessageBox.Show($"Total standing charge days consumed is: {daysConsumed}");
 
-                int meterReadingDifference = Convert.ToInt32(lastMeterReading) - Convert.ToInt32(currentMeterReading);
+            if ( Convert.ToInt32(lastMeterReading) <=  (Convert.ToInt32(currentMeterReading)) ) {
 
-                int kwhConsumed = (Convert.ToInt32(unitRate) * meterReadingDifference);
+                int meterReadingDifference =  Convert.ToInt32(currentMeterReading) - Convert.ToInt32(lastMeterReading);
+
+                double kwhConsumed = (Convert.ToDouble(unitRate) * Convert.ToDouble(meterReadingDifference))/ (double) 100;
+
+                decimal kwhConsumedInDecimal = Math.Round((decimal)kwhConsumed, noOfDecimalPlaces);
+
+                electricConsumptionBox.Text = meterReadingDifference.ToString();
+
+                // MessageBox.Show($"Electricity KWH consumed:  {kwhConsumed}");
+
+                double StandingChargePerDays = (Convert.ToDouble(daysConsumed) * (Convert.ToDouble(standingCharge))) / (double)penceToPound;
+
+                decimal standChargePerDaysDecimal = Math.Round((decimal)StandingChargePerDays, noOfDecimalPlaces);
+
+                electricStandingCharge_DaysNo.Text = $"Cal.Standing charge for {daysConsumed} days: £";
+
+                electricStandingChargePerMonthLabel.Text = standChargePerDaysDecimal.ToString();
+
+                decimal totalElectricityAmountConsumed = standChargePerDaysDecimal + kwhConsumedInDecimal;
+
+                electricResultBox.Text = totalElectricityAmountConsumed.ToString();
 
 
-                int totalStandingCharge = Convert.ToInt32(daysConsumed) * (Convert.ToInt32(standingCharge) / 100);
+                string finalResult = $"Your Bill is as follows: " +
+                   $"\n\n 1. Standing Charge per {daysConsumed} days:  £{standChargePerDaysDecimal}." +
+                   $"\n\n 2. Electricity Consumption Kwh for {daysConsumed} days:  {meterReadingDifference} Kwh. " +
+                   $"\n\n 3. Total Gas Price Consumed for {daysConsumed} days period: £{totalElectricityAmountConsumed}.";
 
-                decimal totalStandingChargeAmount = (decimal)totalStandingCharge;
+                MessageBox.Show(finalResult, $"Your Electricity Bill Usage for the {daysConsumed} period ", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                electricStandingChargePerMonthLabel.Text = totalStandingChargeAmount.ToString();
+
+
+
+
             }
 
 
+           /* if (comboBox.SelectedIndex == 0)
+            {
+
+                gasBut.Checked = true;
+                gasBut.Visible = true;
+                gasGroupBox.Visible = true;
+
+                electricityBut.Visible = false;
+                electricityBut.Checked = false;
+                electricGroupBox.Visible = false;
+
+                waterBut.Visible = false;
+                waterBut.Checked = false;
+
+            }
+            else if (comboBox.SelectedIndex == 1)
+            {
+                gasBut.Checked = false;
+                gasBut.Visible = false;
+                gasGroupBox.Visible = false;
+
+                electricityBut.Visible = true;
+                electricityBut.Checked = true;
+                electricGroupBox.Visible = true;
+
+                waterBut.Visible = false;
+                waterBut.Checked = false;
+
+            }
+
+            else if (comboBox.SelectedIndex == 2)
+            {
+                gasBut.Checked = false;
+                gasBut.Visible = false;
+                gasGroupBox.Visible = false;
+
+                electricityBut.Visible = false;
+                electricityBut.Checked = false;
+                electricGroupBox.Visible = false;
+
+                waterBut.Visible = true;
+                waterBut.Checked = true;
+
+            }
+
+            else if (comboBox.SelectedIndex == 4)
+            {
+
+                gasBut.Checked = true;
+                gasBut.Visible = true;
+                gasGroupBox.Visible = true;
+
+                electricityBut.Visible = true;
+                electricityBut.Checked = true;
+                electricGroupBox.Visible = true;
+
+                waterBut.Visible = true;
+                waterBut.Checked = true;
+
+            }*/
 
 
 
 
 
 
+        }
 
+      
+
+        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox.SelectedIndex == 0)
+            {
+
+                gasBut.Checked = true;
+                gasBut.Visible = true;
+                gasGroupBox.Visible = true;
+
+                electricityBut.Visible = false;
+                electricityBut.Checked = false;
+                electricGroupBox.Visible = false;
+
+                waterBut.Visible = false;
+                waterBut.Checked = false;
+
+            }
+            else if (comboBox.SelectedIndex == 1)
+            {
+                gasBut.Checked = false;
+                gasBut.Visible = false;
+                gasGroupBox.Visible = false;
+
+                electricityBut.Visible = true;
+                electricityBut.Checked = true;
+                electricGroupBox.Visible = true;
+
+                waterBut.Visible = false;
+                waterBut.Checked = false;
+
+            }
+
+            else if (comboBox.SelectedIndex == 2)
+            {
+                gasBut.Checked = false;
+                gasBut.Visible = false;
+                gasGroupBox.Visible = false;
+
+                electricityBut.Visible = false;
+                electricityBut.Checked = false;
+                electricGroupBox.Visible = false;
+
+                waterBut.Visible = true;
+                waterBut.Checked = true;
+
+            }
+
+            else if (comboBox.SelectedIndex == 4)
+            {
+
+                gasBut.Checked = true;
+                gasBut.Visible = true;
+                gasGroupBox.Visible = true;
+
+                electricityBut.Visible = true;
+                electricityBut.Checked = true;
+                electricGroupBox.Visible = true;
+
+                waterBut.Visible = true;
+                waterBut.Checked = true;
+
+            }
         }
     }
 }

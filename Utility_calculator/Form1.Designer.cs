@@ -40,7 +40,7 @@ namespace Utility_calculator
             this.noOfDaysLabel = new System.Windows.Forms.Label();
             this.noOfDaysBox = new System.Windows.Forms.TextBox();
             this.standingChargePerMonthLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.gasStandingCharge_DaysNo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.kwh = new System.Windows.Forms.Label();
@@ -63,26 +63,30 @@ namespace Utility_calculator
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.electricGroupBox = new System.Windows.Forms.GroupBox();
-            this.lastElectReadingLbl = new System.Windows.Forms.Label();
-            this.lastElectricMeterReadingTextBox = new System.Windows.Forms.TextBox();
-            this.currentElectricMeterLbl = new System.Windows.Forms.Label();
-            this.currentElectricMeterTextBox = new System.Windows.Forms.TextBox();
-            this.electricUnitRate = new System.Windows.Forms.Label();
-            this.electricUnitRateFrontText = new System.Windows.Forms.Label();
-            this.electricUnitRateTextBox = new System.Windows.Forms.TextBox();
-            this.electricStandingChargeBack = new System.Windows.Forms.Label();
-            this.electricStandingCharge = new System.Windows.Forms.Label();
-            this.electricStandingChargeBox = new System.Windows.Forms.TextBox();
-            this.electricDaysNo = new System.Windows.Forms.Label();
-            this.electricDayNoBox = new System.Windows.Forms.TextBox();
-            this.electricStandingChargePerMonthLabel = new System.Windows.Forms.Label();
-            this.electricStandingCharge_DaysNo = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.calculateElectricBut = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.electricResultBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.electricConsumptionBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.electricResultBox = new System.Windows.Forms.TextBox();
-            this.calculateElectricBut = new System.Windows.Forms.Button();
+            this.electricStandingChargePerMonthLabel = new System.Windows.Forms.Label();
+            this.electricStandingCharge_DaysNo = new System.Windows.Forms.Label();
+            this.electricDaysNo = new System.Windows.Forms.Label();
+            this.electricDayNoBox = new System.Windows.Forms.TextBox();
+            this.electricStandingChargeBack = new System.Windows.Forms.Label();
+            this.electricStandingCharge = new System.Windows.Forms.Label();
+            this.electricStandingChargeBox = new System.Windows.Forms.TextBox();
+            this.electricUnitRate = new System.Windows.Forms.Label();
+            this.currentElectricMeterLbl = new System.Windows.Forms.Label();
+            this.electricUnitRateFrontText = new System.Windows.Forms.Label();
+            this.currentElectricMeterTextBox = new System.Windows.Forms.TextBox();
+            this.electricUnitRateTextBox = new System.Windows.Forms.TextBox();
+            this.lastElectReadingLbl = new System.Windows.Forms.Label();
+            this.lastElectricMeterReadingTextBox = new System.Windows.Forms.TextBox();
+            this.comboBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.gasGroupBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.electricGroupBox.SuspendLayout();
@@ -151,11 +155,12 @@ namespace Utility_calculator
             // 
             // gasGroupBox
             // 
+            this.gasGroupBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.gasGroupBox.Controls.Add(this.reserBut);
             this.gasGroupBox.Controls.Add(this.noOfDaysLabel);
             this.gasGroupBox.Controls.Add(this.noOfDaysBox);
             this.gasGroupBox.Controls.Add(this.standingChargePerMonthLabel);
-            this.gasGroupBox.Controls.Add(this.label3);
+            this.gasGroupBox.Controls.Add(this.gasStandingCharge_DaysNo);
             this.gasGroupBox.Controls.Add(this.label2);
             this.gasGroupBox.Controls.Add(this.label1);
             this.gasGroupBox.Controls.Add(this.kwh);
@@ -216,14 +221,14 @@ namespace Utility_calculator
             this.standingChargePerMonthLabel.TabIndex = 19;
             this.standingChargePerMonthLabel.Text = "0.00";
             // 
-            // label3
+            // gasStandingCharge_DaysNo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 225);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Cal. Standing charge/Days No: £";
+            this.gasStandingCharge_DaysNo.AutoSize = true;
+            this.gasStandingCharge_DaysNo.Location = new System.Drawing.Point(13, 225);
+            this.gasStandingCharge_DaysNo.Name = "gasStandingCharge_DaysNo";
+            this.gasStandingCharge_DaysNo.Size = new System.Drawing.Size(164, 13);
+            this.gasStandingCharge_DaysNo.TabIndex = 18;
+            this.gasStandingCharge_DaysNo.Text = "Cal. Standing charge/Days No: £";
             // 
             // label2
             // 
@@ -288,7 +293,7 @@ namespace Utility_calculator
             this.resultBox.ReadOnly = true;
             this.resultBox.Size = new System.Drawing.Size(100, 20);
             this.resultBox.TabIndex = 7;
-            this.resultBox.Text = "670";
+            this.resultBox.Text = "0";
             // 
             // calculateGasBut
             // 
@@ -378,13 +383,13 @@ namespace Utility_calculator
             // closeToolStripMenuItem1
             // 
             this.closeToolStripMenuItem1.Name = "closeToolStripMenuItem1";
-            this.closeToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem1.Text = "Close";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // closeToolStripMenuItem
@@ -404,13 +409,15 @@ namespace Utility_calculator
             // detailsToolStripMenuItem
             // 
             this.detailsToolStripMenuItem.Name = "detailsToolStripMenuItem";
-            this.detailsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.detailsToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.detailsToolStripMenuItem.Text = "Details";
             this.detailsToolStripMenuItem.Click += new System.EventHandler(this.detailsToolStripMenuItem_Click);
             // 
             // electricGroupBox
             // 
             this.electricGroupBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.electricGroupBox.Controls.Add(this.label7);
+            this.electricGroupBox.Controls.Add(this.label3);
             this.electricGroupBox.Controls.Add(this.calculateElectricBut);
             this.electricGroupBox.Controls.Add(this.label6);
             this.electricGroupBox.Controls.Add(this.electricResultBox);
@@ -431,138 +438,60 @@ namespace Utility_calculator
             this.electricGroupBox.Controls.Add(this.electricUnitRateTextBox);
             this.electricGroupBox.Controls.Add(this.lastElectReadingLbl);
             this.electricGroupBox.Controls.Add(this.lastElectricMeterReadingTextBox);
-            this.electricGroupBox.Location = new System.Drawing.Point(365, 71);
+            this.electricGroupBox.Location = new System.Drawing.Point(352, 71);
             this.electricGroupBox.Name = "electricGroupBox";
-            this.electricGroupBox.Size = new System.Drawing.Size(275, 361);
+            this.electricGroupBox.Size = new System.Drawing.Size(288, 361);
             this.electricGroupBox.TabIndex = 8;
             this.electricGroupBox.TabStop = false;
             this.electricGroupBox.Text = "Electic Utility";
             // 
-            // lastElectReadingLbl
+            // label7
             // 
-            this.lastElectReadingLbl.AutoSize = true;
-            this.lastElectReadingLbl.Location = new System.Drawing.Point(19, 29);
-            this.lastElectReadingLbl.Name = "lastElectReadingLbl";
-            this.lastElectReadingLbl.Size = new System.Drawing.Size(100, 13);
-            this.lastElectReadingLbl.TabIndex = 23;
-            this.lastElectReadingLbl.Text = "Last Meter Reading";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(235, 69);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 13);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Kwh";
             // 
-            // lastElectricMeterReadingTextBox
+            // label3
             // 
-            this.lastElectricMeterReadingTextBox.Location = new System.Drawing.Point(142, 21);
-            this.lastElectricMeterReadingTextBox.Name = "lastElectricMeterReadingTextBox";
-            this.lastElectricMeterReadingTextBox.Size = new System.Drawing.Size(82, 20);
-            this.lastElectricMeterReadingTextBox.TabIndex = 24;
-            this.lastElectricMeterReadingTextBox.Text = "1320";
-            this.lastElectricMeterReadingTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(235, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Kwh";
             // 
-            // currentElectricMeterLbl
+            // calculateElectricBut
             // 
-            this.currentElectricMeterLbl.AutoSize = true;
-            this.currentElectricMeterLbl.Location = new System.Drawing.Point(19, 69);
-            this.currentElectricMeterLbl.Name = "currentElectricMeterLbl";
-            this.currentElectricMeterLbl.Size = new System.Drawing.Size(114, 13);
-            this.currentElectricMeterLbl.TabIndex = 25;
-            this.currentElectricMeterLbl.Text = "Current Meter Reading";
+            this.calculateElectricBut.BackColor = System.Drawing.SystemColors.Highlight;
+            this.calculateElectricBut.Location = new System.Drawing.Point(70, 326);
+            this.calculateElectricBut.Name = "calculateElectricBut";
+            this.calculateElectricBut.Size = new System.Drawing.Size(127, 35);
+            this.calculateElectricBut.TabIndex = 39;
+            this.calculateElectricBut.Text = "calculate Electric";
+            this.calculateElectricBut.UseVisualStyleBackColor = false;
+            this.calculateElectricBut.Click += new System.EventHandler(this.calculateElectricBut_Click);
             // 
-            // currentElectricMeterTextBox
+            // label6
             // 
-            this.currentElectricMeterTextBox.Location = new System.Drawing.Point(142, 61);
-            this.currentElectricMeterTextBox.Name = "currentElectricMeterTextBox";
-            this.currentElectricMeterTextBox.Size = new System.Drawing.Size(82, 20);
-            this.currentElectricMeterTextBox.TabIndex = 26;
-            this.currentElectricMeterTextBox.Text = "1640";
-            this.currentElectricMeterTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(29, 299);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(123, 19);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "Elctricity Price  £";
             // 
-            // electricUnitRate
+            // electricResultBox
             // 
-            this.electricUnitRate.AutoSize = true;
-            this.electricUnitRate.Location = new System.Drawing.Point(199, 109);
-            this.electricUnitRate.Name = "electricUnitRate";
-            this.electricUnitRate.Size = new System.Drawing.Size(64, 13);
-            this.electricUnitRate.TabIndex = 25;
-            this.electricUnitRate.Text = "Pence/Kwh";
-            // 
-            // electricUnitRateFrontText
-            // 
-            this.electricUnitRateFrontText.AutoSize = true;
-            this.electricUnitRateFrontText.Location = new System.Drawing.Point(19, 109);
-            this.electricUnitRateFrontText.Name = "electricUnitRateFrontText";
-            this.electricUnitRateFrontText.Size = new System.Drawing.Size(52, 13);
-            this.electricUnitRateFrontText.TabIndex = 23;
-            this.electricUnitRateFrontText.Text = "Unit Rate";
-            // 
-            // electricUnitRateTextBox
-            // 
-            this.electricUnitRateTextBox.Location = new System.Drawing.Point(115, 102);
-            this.electricUnitRateTextBox.Name = "electricUnitRateTextBox";
-            this.electricUnitRateTextBox.Size = new System.Drawing.Size(82, 20);
-            this.electricUnitRateTextBox.TabIndex = 24;
-            this.electricUnitRateTextBox.Text = "10.22";
-            this.electricUnitRateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // electricStandingChargeBack
-            // 
-            this.electricStandingChargeBack.AutoSize = true;
-            this.electricStandingChargeBack.Location = new System.Drawing.Point(203, 153);
-            this.electricStandingChargeBack.Name = "electricStandingChargeBack";
-            this.electricStandingChargeBack.Size = new System.Drawing.Size(62, 13);
-            this.electricStandingChargeBack.TabIndex = 29;
-            this.electricStandingChargeBack.Text = "Pence/Day";
-            // 
-            // electricStandingCharge
-            // 
-            this.electricStandingCharge.AutoSize = true;
-            this.electricStandingCharge.Location = new System.Drawing.Point(19, 149);
-            this.electricStandingCharge.Name = "electricStandingCharge";
-            this.electricStandingCharge.Size = new System.Drawing.Size(88, 13);
-            this.electricStandingCharge.TabIndex = 27;
-            this.electricStandingCharge.Text = "Standing charge ";
-            // 
-            // electricStandingChargeBox
-            // 
-            this.electricStandingChargeBox.Location = new System.Drawing.Point(115, 146);
-            this.electricStandingChargeBox.Name = "electricStandingChargeBox";
-            this.electricStandingChargeBox.Size = new System.Drawing.Size(82, 20);
-            this.electricStandingChargeBox.TabIndex = 28;
-            this.electricStandingChargeBox.Text = "28.47";
-            this.electricStandingChargeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // electricDaysNo
-            // 
-            this.electricDaysNo.AutoSize = true;
-            this.electricDaysNo.Location = new System.Drawing.Point(19, 191);
-            this.electricDaysNo.Name = "electricDaysNo";
-            this.electricDaysNo.Size = new System.Drawing.Size(60, 13);
-            this.electricDaysNo.TabIndex = 30;
-            this.electricDaysNo.Text = "No of Days";
-            // 
-            // electricDayNoBox
-            // 
-            this.electricDayNoBox.Location = new System.Drawing.Point(115, 188);
-            this.electricDayNoBox.Name = "electricDayNoBox";
-            this.electricDayNoBox.Size = new System.Drawing.Size(82, 20);
-            this.electricDayNoBox.TabIndex = 31;
-            this.electricDayNoBox.Text = "10";
-            this.electricDayNoBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // electricStandingChargePerMonthLabel
-            // 
-            this.electricStandingChargePerMonthLabel.AutoSize = true;
-            this.electricStandingChargePerMonthLabel.Location = new System.Drawing.Point(189, 225);
-            this.electricStandingChargePerMonthLabel.Name = "electricStandingChargePerMonthLabel";
-            this.electricStandingChargePerMonthLabel.Size = new System.Drawing.Size(28, 13);
-            this.electricStandingChargePerMonthLabel.TabIndex = 33;
-            this.electricStandingChargePerMonthLabel.Text = "0.00";
-            // 
-            // electricStandingCharge_DaysNo
-            // 
-            this.electricStandingCharge_DaysNo.AutoSize = true;
-            this.electricStandingCharge_DaysNo.Location = new System.Drawing.Point(19, 225);
-            this.electricStandingCharge_DaysNo.Name = "electricStandingCharge_DaysNo";
-            this.electricStandingCharge_DaysNo.Size = new System.Drawing.Size(164, 13);
-            this.electricStandingCharge_DaysNo.TabIndex = 32;
-            this.electricStandingCharge_DaysNo.Text = "Cal. Standing charge/Days No: £";
+            this.electricResultBox.Location = new System.Drawing.Point(158, 300);
+            this.electricResultBox.Name = "electricResultBox";
+            this.electricResultBox.ReadOnly = true;
+            this.electricResultBox.Size = new System.Drawing.Size(66, 20);
+            this.electricResultBox.TabIndex = 37;
+            this.electricResultBox.Text = "0";
             // 
             // label4
             // 
@@ -592,41 +521,163 @@ namespace Utility_calculator
             this.electricConsumptionBox.Text = "0.00";
             this.electricConsumptionBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label6
+            // electricStandingChargePerMonthLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(29, 299);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 19);
-            this.label6.TabIndex = 38;
-            this.label6.Text = "Elctricity Price  £";
+            this.electricStandingChargePerMonthLabel.AutoSize = true;
+            this.electricStandingChargePerMonthLabel.Location = new System.Drawing.Point(185, 225);
+            this.electricStandingChargePerMonthLabel.Name = "electricStandingChargePerMonthLabel";
+            this.electricStandingChargePerMonthLabel.Size = new System.Drawing.Size(28, 13);
+            this.electricStandingChargePerMonthLabel.TabIndex = 33;
+            this.electricStandingChargePerMonthLabel.Text = "0.00";
             // 
-            // electricResultBox
+            // electricStandingCharge_DaysNo
             // 
-            this.electricResultBox.Location = new System.Drawing.Point(158, 300);
-            this.electricResultBox.Name = "electricResultBox";
-            this.electricResultBox.ReadOnly = true;
-            this.electricResultBox.Size = new System.Drawing.Size(66, 20);
-            this.electricResultBox.TabIndex = 37;
-            this.electricResultBox.Text = "0";
+            this.electricStandingCharge_DaysNo.AutoSize = true;
+            this.electricStandingCharge_DaysNo.Location = new System.Drawing.Point(19, 225);
+            this.electricStandingCharge_DaysNo.Name = "electricStandingCharge_DaysNo";
+            this.electricStandingCharge_DaysNo.Size = new System.Drawing.Size(164, 13);
+            this.electricStandingCharge_DaysNo.TabIndex = 32;
+            this.electricStandingCharge_DaysNo.Text = "Cal. Standing charge/Days No: £";
             // 
-            // calculateElectricBut
+            // electricDaysNo
             // 
-            this.calculateElectricBut.BackColor = System.Drawing.SystemColors.Highlight;
-            this.calculateElectricBut.Location = new System.Drawing.Point(70, 326);
-            this.calculateElectricBut.Name = "calculateElectricBut";
-            this.calculateElectricBut.Size = new System.Drawing.Size(127, 35);
-            this.calculateElectricBut.TabIndex = 39;
-            this.calculateElectricBut.Text = "calculate Electric";
-            this.calculateElectricBut.UseVisualStyleBackColor = false;
-            this.calculateElectricBut.Click += new System.EventHandler(this.calculateElectricBut_Click);
+            this.electricDaysNo.AutoSize = true;
+            this.electricDaysNo.Location = new System.Drawing.Point(19, 191);
+            this.electricDaysNo.Name = "electricDaysNo";
+            this.electricDaysNo.Size = new System.Drawing.Size(60, 13);
+            this.electricDaysNo.TabIndex = 30;
+            this.electricDaysNo.Text = "No of Days";
+            // 
+            // electricDayNoBox
+            // 
+            this.electricDayNoBox.Location = new System.Drawing.Point(115, 188);
+            this.electricDayNoBox.Name = "electricDayNoBox";
+            this.electricDayNoBox.Size = new System.Drawing.Size(82, 20);
+            this.electricDayNoBox.TabIndex = 31;
+            this.electricDayNoBox.Text = "10";
+            this.electricDayNoBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // electricStandingChargeBack
+            // 
+            this.electricStandingChargeBack.AutoSize = true;
+            this.electricStandingChargeBack.Location = new System.Drawing.Point(203, 153);
+            this.electricStandingChargeBack.Name = "electricStandingChargeBack";
+            this.electricStandingChargeBack.Size = new System.Drawing.Size(62, 13);
+            this.electricStandingChargeBack.TabIndex = 29;
+            this.electricStandingChargeBack.Text = "Pence/Day";
+            // 
+            // electricStandingCharge
+            // 
+            this.electricStandingCharge.AutoSize = true;
+            this.electricStandingCharge.Location = new System.Drawing.Point(19, 149);
+            this.electricStandingCharge.Name = "electricStandingCharge";
+            this.electricStandingCharge.Size = new System.Drawing.Size(88, 13);
+            this.electricStandingCharge.TabIndex = 27;
+            this.electricStandingCharge.Text = "Standing charge ";
+            // 
+            // electricStandingChargeBox
+            // 
+            this.electricStandingChargeBox.Location = new System.Drawing.Point(115, 146);
+            this.electricStandingChargeBox.Name = "electricStandingChargeBox";
+            this.electricStandingChargeBox.Size = new System.Drawing.Size(82, 20);
+            this.electricStandingChargeBox.TabIndex = 28;
+            this.electricStandingChargeBox.Text = "43.48";
+            this.electricStandingChargeBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // electricUnitRate
+            // 
+            this.electricUnitRate.AutoSize = true;
+            this.electricUnitRate.Location = new System.Drawing.Point(199, 109);
+            this.electricUnitRate.Name = "electricUnitRate";
+            this.electricUnitRate.Size = new System.Drawing.Size(64, 13);
+            this.electricUnitRate.TabIndex = 25;
+            this.electricUnitRate.Text = "Pence/Kwh";
+            // 
+            // currentElectricMeterLbl
+            // 
+            this.currentElectricMeterLbl.AutoSize = true;
+            this.currentElectricMeterLbl.Location = new System.Drawing.Point(19, 69);
+            this.currentElectricMeterLbl.Name = "currentElectricMeterLbl";
+            this.currentElectricMeterLbl.Size = new System.Drawing.Size(114, 13);
+            this.currentElectricMeterLbl.TabIndex = 25;
+            this.currentElectricMeterLbl.Text = "Current Meter Reading";
+            // 
+            // electricUnitRateFrontText
+            // 
+            this.electricUnitRateFrontText.AutoSize = true;
+            this.electricUnitRateFrontText.Location = new System.Drawing.Point(19, 109);
+            this.electricUnitRateFrontText.Name = "electricUnitRateFrontText";
+            this.electricUnitRateFrontText.Size = new System.Drawing.Size(85, 13);
+            this.electricUnitRateFrontText.TabIndex = 23;
+            this.electricUnitRateFrontText.Text = "Unit Rate (Tariff)";
+            // 
+            // currentElectricMeterTextBox
+            // 
+            this.currentElectricMeterTextBox.Location = new System.Drawing.Point(142, 61);
+            this.currentElectricMeterTextBox.Name = "currentElectricMeterTextBox";
+            this.currentElectricMeterTextBox.Size = new System.Drawing.Size(82, 20);
+            this.currentElectricMeterTextBox.TabIndex = 26;
+            this.currentElectricMeterTextBox.Text = "1640";
+            this.currentElectricMeterTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // electricUnitRateTextBox
+            // 
+            this.electricUnitRateTextBox.Location = new System.Drawing.Point(115, 102);
+            this.electricUnitRateTextBox.Name = "electricUnitRateTextBox";
+            this.electricUnitRateTextBox.Size = new System.Drawing.Size(82, 20);
+            this.electricUnitRateTextBox.TabIndex = 24;
+            this.electricUnitRateTextBox.Text = "33.81";
+            this.electricUnitRateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lastElectReadingLbl
+            // 
+            this.lastElectReadingLbl.AutoSize = true;
+            this.lastElectReadingLbl.Location = new System.Drawing.Point(19, 29);
+            this.lastElectReadingLbl.Name = "lastElectReadingLbl";
+            this.lastElectReadingLbl.Size = new System.Drawing.Size(100, 13);
+            this.lastElectReadingLbl.TabIndex = 23;
+            this.lastElectReadingLbl.Text = "Last Meter Reading";
+            // 
+            // lastElectricMeterReadingTextBox
+            // 
+            this.lastElectricMeterReadingTextBox.Location = new System.Drawing.Point(142, 21);
+            this.lastElectricMeterReadingTextBox.Name = "lastElectricMeterReadingTextBox";
+            this.lastElectricMeterReadingTextBox.Size = new System.Drawing.Size(82, 20);
+            this.lastElectricMeterReadingTextBox.TabIndex = 24;
+            this.lastElectricMeterReadingTextBox.Text = "1320";
+            this.lastElectricMeterReadingTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // comboBox
+            // 
+            this.comboBox.FormattingEnabled = true;
+            this.comboBox.Items.AddRange(new object[] {
+            "Gas Utility",
+            "Electricity Utility",
+            "Water Utility",
+            "Broadband",
+            "All"});
+            this.comboBox.Location = new System.Drawing.Point(269, 3);
+            this.comboBox.Name = "comboBox";
+            this.comboBox.Size = new System.Drawing.Size(121, 21);
+            this.comboBox.TabIndex = 9;
+            this.comboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(173, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 13);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Select Your Utility";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1024, 450);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.comboBox);
             this.Controls.Add(this.electricGroupBox);
             this.Controls.Add(this.gasGroupBox);
             this.Controls.Add(this.waterBut);
@@ -672,7 +723,7 @@ namespace Utility_calculator
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label standingChargePerMonthLabel;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label gasStandingCharge_DaysNo;
         private System.Windows.Forms.Label noOfDaysLabel;
         private System.Windows.Forms.TextBox noOfDaysBox;
         private System.Windows.Forms.Button reserBut;
@@ -704,6 +755,10 @@ namespace Utility_calculator
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox electricResultBox;
         private System.Windows.Forms.Button calculateElectricBut;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBox;
+        private System.Windows.Forms.Label label8;
     }
 }
 
